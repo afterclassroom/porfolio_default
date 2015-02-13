@@ -62,12 +62,31 @@
         var your_class_path = 'http://yourclass.' + domain;
         var portfolio_path = 'http://';
         if (domain == 'afterclassroom.com') {
-        	portfolio_path = portfolio_path + 'developer.' + domain + '/api/v1/portfolios';
-        }else{
-        	portfolio_path = portfolio_path + domain + '/api/v1/portfolios';
+            portfolio_path = portfolio_path + 'developer.' + domain + '/api/v1/portfolios';
+        } else {
+            portfolio_path = portfolio_path + domain + '/api/v1/portfolios';
         }
         $('#gotoclass').href = your_class_path;
-
+        var domain_user = '';
+        if (sub !== ''){
+        	domain_user = sub;
+        }else{
+        	domain_user = domain;
+        }
+        $.ajax({
+            url: portfolio_path,
+            data: {
+                domain_user: domain_user
+            },
+            error: function() {
+                console.log('Error');
+            },
+            dataType: 'jsonp',
+            success: function(data) {
+                console.log(data);
+            },
+            type: 'GET'
+        });
     });
     </script>
 </body>
