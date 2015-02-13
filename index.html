@@ -68,24 +68,19 @@
         }
         $('#gotoclass').href = your_class_path;
         var domain_user = '';
-        if (sub !== ''){
-        	domain_user = sub;
-        }else{
-        	domain_user = domain;
+        if (sub !== '') {
+            domain_user = sub;
+        } else {
+            domain_user = domain;
         }
         $.ajax({
+            type: "GET",
             url: portfolio_path,
             data: {
                 domain_user: domain_user
-            },
-            error: function() {
-                console.log('Error');
-            },
-            dataType: 'jsonp',
-            success: function(data) {
-                console.log(data);
-            },
-            type: 'GET'
+            }
+        }).done(function(res) {
+            console.log(value);
         });
     });
     </script>
