@@ -66,13 +66,14 @@
         } else {
             portfolio_path = portfolio_path + domain + '/api/v1/portfolios';
         }
-        $('#gotoclass').href = your_class_path;
+        portfolio_path = 'http://developer.afterclassroom.com/api/v1/portfolios';
         var domain_user = '';
         if (sub !== '') {
             domain_user = sub;
         } else {
             domain_user = domain;
         }
+        domain_user = 'vu-tc';
         $.ajax({
             type: "GET",
             url: portfolio_path,
@@ -80,7 +81,11 @@
                 domain_user: domain_user
             }
         }).done(function(res) {
-            console.log(value);
+        	$('#gotoclass').href = your_class_path;
+        	$('#name').html(res.portfolio.about.name);
+        	$('#avatar').html(res.portfolio.avatar);
+        	$('#description').html(res.portfolio.description);
+        	$('#userInfo').show();
         });
     });
     </script>
