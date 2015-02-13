@@ -82,9 +82,9 @@
             }
         }).done(function(res) {
         	$('#gotoclass').href = your_class_path;
-        	$('#name').html(res.portfolio.about.name);
-        	$('#avatar').html(res.portfolio.avatar);
-        	$('#description').html(res.portfolio.description);
+        	$('#name').html(res.portfolio.about.profile.name);
+        	$('#avatar').html(res.portfolio.about.avatar);
+        	$('#description').html(res.portfolio.about.profile.description);
         	$('#userInfo').show();
         });
     });
