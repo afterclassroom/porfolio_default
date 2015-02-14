@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gotoClassroom Login</title>
+    <title>gotoClassroom</title>
     <meta name="description" content="gotoClassroom Login" />
     <meta name="keywords" content="gotoclassroom, login" />
     <meta name="author" content="gotoClassroom" />
@@ -59,21 +59,21 @@
         var sub = parts[0]
         var domain = parts[1]
         var type = parts[2]
-        var your_class_path = 'http://yourclass.' + domain;
+        var your_class_path = 'http://yourclass.' + domain + '.' + type;
         var portfolio_path = 'http://';
         if (domain == 'afterclassroom.com') {
-            portfolio_path = portfolio_path + 'developer.' + domain + '/api/v1/portfolios';
+            portfolio_path = portfolio_path + 'developer.' + domain + '.' + type + '/api/v1/portfolios';
         } else {
-            portfolio_path = portfolio_path + domain + '/api/v1/portfolios';
+            portfolio_path = portfolio_path + domain + '.' + type + '/api/v1/portfolios';
         }
-        portfolio_path = 'http://developer.afterclassroom.com/api/v1/portfolios';
+
         var domain_user = '';
         if (sub !== '') {
             domain_user = sub;
         } else {
             domain_user = domain;
         }
-        domain_user = 'vu-tc';
+
         $.ajax({
             type: "GET",
             url: portfolio_path,
